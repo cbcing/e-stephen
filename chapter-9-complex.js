@@ -52,6 +52,14 @@ Complex.prototype.equals = function(that) {     //检测当前复数对象是否
 
 Complex.prototype.show = 123;
 
+/**
+ * JavaScript通过给原型对象添加新方法来扩充JavaScript类
+ */
+// 返回当前复数的共轭复数
+Complex.prototype.conj = function() {
+    return new Complex(this.r , -this.i)
+};
+
 //预定义一些对附属运算有帮助的类字段
 //命名全部为大些，表明是一个常量
 Complex.ZERO = new Complex(0, 0);
