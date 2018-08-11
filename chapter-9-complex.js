@@ -97,3 +97,38 @@ console.log("实例方法: add(): " + others.add(new Complex(1, 1)));
 console.log(others.ZERO);   //undefined
 console.log(Complex.ZERO.add(new Complex(1, 1)));
 console.log(Complex.CONSTANT);
+
+
+
+console.log("=================================================")
+
+/**
+ * 鸭式辩型：像鸭子一样走路、游泳并且嘎嘎叫的鸟就是鸭子
+ * 
+ * JavaScript：如果一个对象可以像鸭子一样走路、游泳并且嘎嘎叫，就认为这个对象是鸭子，哪怕他并不是从鸭子类型的原型对象继承而来的
+ */
+
+// 利用鸭式辩型实现的函数
+function quacks(o/*, ...*/) {
+    for (var i = 1; i < arguments.length; i++) {
+        var arg = arguments[i];
+        switch (typeof arg) {
+            case 'string':
+                if (typeof o[arg] !== "function"){
+                    return false;
+                }
+            case 'function':
+                arg = arg.prototype;
+            case 'object':
+                for (var m in arg) {
+                    if (typeof arg[m] !== 'function') {
+                        continue;
+                    }
+                    if (typeof o[m] !== 'function') {
+                        return false;
+                    }
+                }
+        }
+    }
+    return true;
+}
