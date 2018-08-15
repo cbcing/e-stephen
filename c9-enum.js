@@ -57,6 +57,7 @@ function Card(suit, rank) {
     this.rank = rank;
 }
 
+// 枚举类型
 Card.Suit = enumerationFactory({Clubs: 1, Diamonds: 2, Hearts: 3, Spades: 4});
 Card.Rank = enumerationFactory({Two: 2, Three: 3, Four: 4, Five: 5, Six: 6, Seven: 7, Eight: 8, Nine: 9, Ten: 10, Jack: 11, Queen: 12, King: 13, Ace: 14});
 
@@ -64,7 +65,7 @@ Card.prototype.toString = function () {
     return this.rank.toString() + " of" + this.suit.toString();
 }
 
-Card,prototype.compareTo = function (that) {
+Card.prototype.compareTo = function (that) {
     if (this.rank < that.rank) {
         return -1;
     }
