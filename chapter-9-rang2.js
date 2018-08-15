@@ -6,6 +6,17 @@ function Range(from, to) {
     this.to = to;
 }
 
+// JavaScript私有状态定义
+// 这些值保存在闭包中
+// function Range(from, to) {
+//     this.from = function () {
+//         return from;
+//     }
+//     this.to = function () {
+//         return to;
+//     }
+// }
+
 //构造函数Range()的prototype属性被用作使用构造函数Range()创建的对象的原型，所有使用Range()构造的对象都继承自这个对象
 Range.prototype = {
 
