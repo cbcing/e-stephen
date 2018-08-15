@@ -9,6 +9,9 @@
  * 3、给构造函数定义类字段和类属性
  */
 
+ // 引用
+ import {generic} from 'borrowing';
+ 
 /**
  * 用于构造Complex类的构造函数
  */
@@ -51,6 +54,9 @@ Complex.prototype.equals = function(that) {     //检测当前复数对象是否
 };
 
 Complex.prototype.show = 123;
+
+// JavaScript方法借用（面向对象：多重继承）
+Complex.prototype.sayHello = generic.sayHello;
 
 /**
  * JavaScript通过给原型对象添加新方法来扩充JavaScript类
@@ -97,6 +103,7 @@ console.log("实例方法: add(): " + others.add(new Complex(1, 1)));
 console.log(others.ZERO);   //undefined
 console.log(Complex.ZERO.add(new Complex(1, 1)));
 console.log(Complex.CONSTANT);
+console.log(Complex.sayHello);
 
 
 
