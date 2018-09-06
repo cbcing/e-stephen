@@ -25,3 +25,29 @@ console.log(es6Name);       // es6Name
 // const变量为常量
 const pi = Math.PI;
 console.log(pi);        // 3.141592653589793
+
+/**
+ * 2. class extends super
+ */
+
+class Animal {
+    constructor () {
+        this.type = "Animal";
+    }
+    say (word) {
+        console.log(this.type + " say " + word);
+    }
+}
+
+let animal = new Animal();
+animal.say("Hahaha.");          // Animal say Hahaha.
+
+class Dog extends Animal{
+    constructor () {
+        super();
+        this.type = "Dog";
+    }
+}
+
+let erHa = new Dog();
+erHa.say("wangwangwang.");      // Dog say wangwangwang.
