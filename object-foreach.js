@@ -41,3 +41,16 @@ Object.getOwnPropertyNames(objHere).forEach((key) => console.log(`${key} ${objHe
 // Reflect.ownKeys(obj)
 console.log("方法4");
 Reflect.ownKeys(objHere).forEach((key) => console.log(`${key} ${objHere[key]}`));
+
+// es6创建类和对象的写法
+console.log("其他写法");
+class classAHere {
+    constructor () {
+        this.name = "David";
+        this.age = 24;
+        this.height = 175;
+        this.weight = 65
+    }
+}
+const objBHere = new classAHere;
+Object.keys(objBHere).forEach((key) => console.log(`${key} ${objBHere[key]}`));
