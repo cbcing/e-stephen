@@ -63,3 +63,32 @@ erHa.say("wangwangwang.");      // Dog say wangwangwang.
  // es6
  const stres6 = "es6";
  console.log(`This is ${stres6}`);      // This is es5
+
+ /**
+  * 4. 函数
+  */
+ 
+// 4.1 函数默认参数
+function add(x = 100, y = 100) {
+    return x + y;
+}
+console.log(add());     // 200
+console.log(add(1, 2)); // 3
+
+// 4.2 箭头函数
+var funcName = (params) => params + 2; // 单个参数
+console.log(funcName(2)); // 4
+var sum = (x = 123, y = 321) => x + y; // 两个参数
+console.log(sum());     // 444
+console.log(sum(3, 4)); // 7
+var fullName = (firstName, lastName) => `${firstName} ${lastName}`;
+console.log(fullName('David', 'Chen'));     // David Chen
+var multSum = (param1, param2, ...params) => {  // 多个参数
+    var i = 0;
+    var sum = param1 + param2;
+    for (i = 0; i < params.length; i++) {
+        sum += params[i];
+    }
+    return sum;
+}
+console.log(multSum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)); // 55
