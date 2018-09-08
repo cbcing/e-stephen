@@ -254,7 +254,7 @@ console.log(objFHereOfSeven);   // { name: 'David', age: 24, height: 175, weight
  */
 class ojbAHereOfEight {
     constructor () {
-        let name, age;
+        this.name, age;
     }
     getName () {
         return this.name;
