@@ -186,3 +186,88 @@ console.log(funcOneHereOfSix);      // [Function: fieldE]
 console.log(funcOneHereOfSix());    // i m function
 const objCHereOfSix = fieldF;
 console.log(`${objCHereOfSix.name} ${objCHereOfSix.age}`);  // David 24
+
+/**
+ * 7. 展开运算符(...)
+ */
+
+ // 示例1
+ // 数组
+ const arrayAHereOfSeven = [1, 2, "red", "yellow"];
+ const arrayBHereOfSeven = [...arrayAHereOfSeven, 3, "blue"];
+ for (var i = 0; i < arrayBHereOfSeven.length; i++) {
+     console.log(arrayBHereOfSeven[i]); // 1 2 red yellow 3 blue (换行显示)
+ }
+ // 对象
+ const objAHereOfSeven = {
+     name: "David",
+     age: 24
+ }
+ const objBHereOfSeven = {
+     ...objAHereOfSeven,
+     height: 174,
+     weight: 65
+ }
+ Object.keys(objBHereOfSeven).forEach(key => console.log(`${key} ${objBHereOfSeven[key]}`));    // name David age 24 height 174 weight 65 (换行显示)
+
+ // 示例2
+ // 数组
+const arrayCHereOfSeven = [1, 2, 3, "red", "blue"];
+const [varAHOSeven, ...restAHOSeven] = arrayCHereOfSeven;
+// restAHOSeven是一个数组
+console.log(restAHOSeven);  // [ 2, 3, 'red', 'blue' ]
+// 对象
+const objCHereOfSeven = {
+    nameHOSeven: "david",
+    age: 24,
+    height: 175,
+    weight: 65
+}
+const {nameHOSeven, ...restBHOSeven} = objCHereOfSeven;
+// restBHOSeven是一个对象
+console.log(restBHOSeven);  // { age: 24, height: 175, weight: 65 }
+
+// 示例3
+// 数组
+const arrarDHereOfSeven = [1, 2, 3];
+const arrayEHereOfSeven = ["red", "blue", "yellow"];
+const arrayFHereOfSeven = [...arrarDHereOfSeven, ...arrayEHereOfSeven];
+console.log(arrayFHereOfSeven); // [ 1, 2, 3, 'red', 'blue', 'yellow' ]
+// 对象
+const objDHereOfSeven = {
+    name: "David",
+    age: 24
+}
+const objEHereOfSeven = {
+    height: 175,
+    weight: 65
+}
+const objFHereOfSeven = {...objDHereOfSeven, ...objEHereOfSeven};
+// 下面语句功能和上面语句相同：新建对象，属性有其他对象的属性共同组成
+// const objFHereOfSeven = Object.assign({}, objDHereOfSeven, objEHereOfSeven);
+console.log(objFHereOfSeven);   // { name: 'David', age: 24, height: 175, weight: 65 }
+
+/**
+ * 8. import export
+ * import: 导入模块
+ * export: 导出模块
+ */
+class ojbAHereOfEight {
+    constructor () {
+        let name, age;
+    }
+    getName () {
+        return this.name;
+    }
+    setName (name = "name") {
+        this.name = name;
+    }
+    getAge () {
+        return this.age;
+    }
+    setAge (age = 0) {
+        this.age = age
+    }
+}
+// 到处默认，有且只有一个默认
+export default Es6Feature;
