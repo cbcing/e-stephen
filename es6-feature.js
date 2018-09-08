@@ -148,3 +148,41 @@ var objb = {
 }
 var objc = Object.assign({}, objA, objb);
 console.log(objc.height + " " + objc.weight); // 175cm 60
+
+/**
+ * 6. 解构
+ * 将一个数据结构分解为更小的部分的过程
+ */
+
+// var [a, b, c] = [1, 2, 3]
+// console.log(a + " " + b + " " + c);
+// 对数组数据解构
+const arrayAHereOfSix = [1, 2, "red", "blue"];
+const [varAHOSix, varBHOSix, varCHOSix, varDHOSix] = arrayAHereOfSix;
+console.log(`${varAHOSix} ${varBHOSix} ${varCHOSix} ${varDHOSix}`)  // 1 2 red blue
+
+// 对象数据解构
+// 注意：对象解构的字段和被赋值变量名要一致才能解构成功
+const objAHereOfSix = {
+    fieldA: "fieldA",
+    fieldB: 123456,
+    fieldC: 3.1415926,
+    fieldD: [1, 2, 3, 4],
+    fieldE: function () {
+        return "i m function";
+    },
+    fieldF: {
+        name: "David",
+        age: 24
+    }
+}
+const {fieldA, fieldB, fieldC, fieldD, fieldE, fieldF} = objAHereOfSix;
+console.log(`${fieldA} ${fieldB} ${fieldC} ${fieldD} ${fieldE} ${fieldF}`)  // fieldA 123456 3.1415926 1,2,3,4 function () {return "i m function";} [object Object]
+for (var i = 0; i < fieldD.length; i++) {
+    console.log(fieldD[i]);
+}
+const funcOneHereOfSix = fieldE;
+console.log(funcOneHereOfSix);      // [Function: fieldE]
+console.log(funcOneHereOfSix());    // i m function
+const objCHereOfSix = fieldF;
+console.log(`${objCHereOfSix.name} ${objCHereOfSix.age}`);  // David 24
