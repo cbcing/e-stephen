@@ -51,3 +51,15 @@ class Dog extends Animal{
 
 let erHa = new Dog();
 erHa.say("wangwangwang.");      // Dog say wangwangwang.
+
+/**
+ * 3. 模版字符串
+ */
+
+ // es5
+ var stres5 = "es5";
+ console.log("This is " + stres5);      // This is es5
+
+ // es6
+ const stres6 = "es6";
+ console.log(`This is ${stres6}`);      // This is es5
