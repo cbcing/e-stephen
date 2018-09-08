@@ -92,3 +92,59 @@ var multSum = (param1, param2, ...params) => {  // 多个参数
     return sum;
 }
 console.log(multSum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)); // 55
+
+/**
+ * 5. 拓展对象的功能
+ */
+
+ // 5.1 键值对重名的书写形式
+ // es5
+function cates5(name, age) {
+    return {
+        name: name,
+        age, age
+    }
+}
+var catone = cates5("Cindy", 3);
+console.log(`${catone.name} ${catone.age}`);    // Cindy 3
+
+// es6
+var cates6 = (name, age) => {return{name, age}};
+// function cates6 (name, age) { // 与上一行代码等价
+//     return {
+//         name,
+//         age
+//     };
+// }
+var cattwo = cates6("Jason", 2);
+console.log(`${cattwo.name} ${cattwo.age}`);    // Jason 2
+
+// 5.2 改进对字面量赋值的语法
+// es5
+const peopleEs5 = {
+    name: 'peoplees5',
+    getName: function() {
+        console.log(this.name);
+    }
+}
+console.log(peopleEs5.getName());   // peoplees5
+// es6
+const peopleEs6 = {
+    name: 'peoplees6',
+    getName () {    // 省略冒号和function关键字，是语法变得简洁
+        console.log(this.name);
+    }
+}
+console.log(peopleEs6.getName());   // peoplees6
+
+// 5.3 Object.assign()
+// ES6 对象提供了Object.assign()这个方法来实现浅复制
+// Object.assign()可以把任意多个源对象自身可枚举的属性拷贝给目标对象，然后返回目标对象。第一参数即为目标对象
+var objA = {
+    height: "175cm"
+}
+var objb = {
+    weight: 60
+}
+var objc = Object.assign({}, objA, objb);
+console.log(objc.height + " " + objc.weight); // 175cm 60
