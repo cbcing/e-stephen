@@ -57,3 +57,74 @@ American.prototype.sayHello = function () {
 var mike = new American("mike");
 console.log(mike.sayHello());       // Hi man.
 console.log(mike);                  // American { name: 'mike', getName: [Function] }
+
+
+
+
+
+// others 一些简单测试
+console.log(Chinese.prototype.constructor);
+/*
+{ [Function: Chinese]
+  sup:
+   Person {
+     constructor: [Function: Person],
+     sayHello: [Function: sayHello] } }
+*/
+console.log(American.prototype.constructor);
+/*
+{ [Function: American]
+  sup:
+   Person {
+     constructor: [Function: Person],
+     sayHello: [Function: sayHello] } }
+*/
+console.log(Chinese.prototype.constructor === American.prototype.constructor); // false
+
+function add (x, y) {
+    return x + y;
+}
+console.log(add.prototype.constructor); // [Function: add]
+
+class A {
+    constructor () {
+        this.name = "";
+    }
+    sayHello () {
+        throw new Error("父类是抽象类不能直接调用，需要子类重写该方法");
+    }
+}
+
+
+// others
+class B extends A {
+    constructor (name) {
+        super();
+        this.name = name;
+    }
+    // 方法重写
+    sayHello () {
+        console.log("i m b");
+    }
+}
+
+var objB = new B("bbb");
+console.log(objB.sayHello());   // i m b
+
+console.log(A.prototype.constructor);   // [Function: A]
+console.log(B.prototype.constructor);   // [Function: B]
+
+class C extends A {
+    constructor (name) {
+        super();
+        this.name = name;
+    }
+    // 方法重写
+    sayHello () {
+        console.log("i m c");
+    }
+}
+extend(C, A);
+var objC = new C("ccc");
+console.log(objC.sayHello());   // i m c
+console.log(C.prototype.constructor);   // { [Function: C] sup: A {} }
